@@ -34,6 +34,7 @@
   "CAPHARNAUM.MagicCreate": "Create",
   "CAPHARNAUM.MagicTransform": "Transform",
   "CAPHARNAUM.MagicDestroy": "Destroy",
+  "CAPHARNAUM.MagicWordType": "Type",
 
   "CAPHARNAUM.FigureAdventurer": "The Adventurer",
   "CAPHARNAUM.SkillsAthletics": "Athletics",
@@ -97,7 +98,7 @@
   "CAPHARNAUM.TabBio": "Biography",
   "CAPHARNAUM.TabGear": "Gear",
   "CAPHARNAUM.TabPath": "Path",
-
+  "CAPHARNAUM.DragonDice": "Dragon Dice",
 
 
   "CAPHARNAUM.EffectCreate": "Create Effect",

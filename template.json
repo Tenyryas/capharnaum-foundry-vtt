@@ -225,7 +225,8 @@
                         }
                     }
                 }
-            }
+            },
+            "dragon_dice": 1
         },
         "Dragon-marked": {
             "templates": [
@@ -308,7 +309,7 @@
             "templates": [
 				"description"
             ],
-            "type": ""
+            "type": "General"
         }
     }
 }
