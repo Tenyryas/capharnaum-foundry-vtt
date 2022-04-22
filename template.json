@@ -1,0 +1,314 @@
+{
+    "Actor": {
+        "types": [
+            "Dragon-marked",
+            "Valiant Captain",
+            "Babouches Dragger"
+        ],
+        "templates": {
+            "background": {
+                "background" : {
+                    "blood": "",
+                    "path": "",
+                    "occupation": "",
+                    "biography": ""
+                }
+            },
+            "magic": {
+                "magic": {
+                    "create": 0,
+                    "transform": 0,
+                    "destroy": 0,
+                    "spellList": ""
+                }
+            },
+            "derived_stats": {
+                "health": {
+                    "value": 10,
+                    "max": 10
+                },
+                "soak": {
+                    "value": 0,
+                    "armor": 0
+                },
+                "init": 0,
+                "defence": 0
+            },
+            "virtues": {
+                "virtues": {
+                    "bravery": {
+                        "value": 1,
+                        "stars": 0
+                    },
+                    "faith": {
+                        "value": 1,
+                        "stars": 0
+                    },
+                    "loyalty": {
+                        "value": 1,
+                        "stars": 0
+                    },
+                    "heroism": {
+                        "value": 3,
+                        "max": 3
+                    }
+                }
+            },
+            "attributes": {
+                "attributes": {
+                    "str": {
+                        "value": 1,
+                        "mod": 0
+                    },
+                    "dex": {
+                        "value": 1,
+                        "mod": 0
+                    },
+                    "con": {
+                        "value": 1,
+                        "mod": 0
+                    },
+                    "int": {
+                        "value": 1,
+                        "mod": 0
+                    },
+                    "cha": {
+                        "value": 1,
+                        "mod": 0
+                    }
+                }
+            },
+            "skills": {
+                "skills": {
+                    "adventurer": {
+                        "athletics": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "riding": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "storytelling": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "survival": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "labourer": {
+                        "agriculture": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "craft": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "solidarity": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "endurance": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "poet": {
+                        "oratory": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "acting": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "poetry": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "music": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "prince": {
+                        "save_face": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "elegance": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "flattery": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "bargaining": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "rogue": {
+                        "assassination": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "thievery": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "stealth": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "intrusion": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "sage": {
+                        "science": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "instruction": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "history-people": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "notice": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "sorcerer": {
+                        "willpower": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "prayer": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "sacrifice": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "sacred_word": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    },
+                    "warrior": {
+                        "fighting": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "command": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "training": {
+                            "value": 0,
+                            "mod": 0
+                        },
+                        "intimidate": {
+                            "value": 0,
+                            "mod": 0
+                        }
+                    }
+                }
+            }
+        },
+        "Dragon-marked": {
+            "templates": [
+                "background",
+                "hp",
+                "attributes",
+                "skills",
+                "virtues"
+            ],
+            "adventure_points": 0
+        },
+        "Valiant Captain": {
+            "templates": [
+                "background",
+                "attributes",
+                "skills",
+                "hp"
+            ]
+        },
+        "Babouches Dragger": {
+            "templates": [
+                "attributes",
+                "skills",
+                "background",
+                "hp"
+            ]
+        }
+    },
+    "Item": {
+        "types": [
+            "weapon",
+            "armor",
+            "gear",
+            "spell",
+			"path_ability",
+            "magic_word"
+        ],
+        "templates": {
+            "base": {
+                "quality": "Common",
+                "price": 20
+            },
+			"description": ""
+        },
+        "weapon": {
+            "templates": [
+                "base",
+				"description"
+            ],
+            "damage": 0
+        },        
+        "gear": {
+            "templates": [
+                "base",
+				"description"
+            ]
+        },
+        "armor": {
+            "templates": [
+                "base",
+				"description"
+            ],
+            "armor": 0
+        },
+        "spell": {
+            "templates": [
+                "base",
+				"description"
+            ],
+            "cost": 2
+        },
+        "path_ability": {
+            "templates": [
+				"description"
+            ],
+            "level": 1,
+            "path": ""
+        },
+        "magic_word": {
+            "templates": [
+				"description"
+            ],
+            "type": ""
+        }
+    }
+}

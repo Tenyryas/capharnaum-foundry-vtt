@@ -1,0 +1,178 @@
+.item-form {
+  font-family: $font-primary;
+}
+
+.sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  .profile-img {
+    flex: 0 0 150px;
+    height: 150px;
+    margin-right: 10px;
+  }
+
+  .header-fields {
+    flex: 1;
+  }
+
+  h1.charname {
+    height: 50px;
+    padding: 0px;
+    margin: 5px 0;
+    border-bottom: 0;
+    input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+}
+
+.sheet-tabs {
+  flex: 0;
+}
+
+.sheet-body,
+.sheet-body .tab,
+.sheet-body .tab .editor {
+  height: 100%;
+}
+
+.tox {
+  .tox-editor-container {
+    background: $c-white;
+  }
+
+  .tox-edit-area {
+    padding: 0 8px;
+  }
+}
+
+.armor-display {
+  background-image: url(../assets/ui/sheet_armor.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 0;
+  background-color: transparent;
+  width: 1rem;
+  max-width: 1rem;
+  color: #fff;
+}
+
+.star-display {
+  background-image: url(../assets/ui/star.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 0;
+  background-color: transparent;
+  width: 1rem;
+  max-width: 1rem;
+  color: #fff;
+
+  padding-top: 5px;
+}
+
+.attribute, .virtue, .soak, .health, .defence, .init {
+  margin-bottom: 2px;
+}
+
+.span-spacer {
+  width: 1.25rem;
+  max-width: 1.25rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.figure {
+  grid-row: auto;
+  grid-column: auto;
+  gap: 0px;
+
+  font-size: 0.8rem;
+  border: 1px solid $c-brown;
+}
+
+  .figure h3 {
+    border-bottom: 1px solid $c-brown;
+    display: flex;
+    flex-direction: column;
+  }
+
+.skills {
+  justify-items: center;
+  padding: 5px;
+}
+
+  .skills input {
+    text-align: center;
+    max-width: 4rem;
+    justify-content: flex-end;
+
+    font-size: 1.5rem;
+  }
+
+.magic-verbs {
+  display: flex;
+  flex-direction: column;
+  max-width: 4rem;
+}
+
+.editor-spellList {
+  padding: 0;
+}
+
+.spellList-content {
+  border: 1px solid $c-brown;
+  border-radius: 2px;
+  padding: 0.5rem 1rem 0 1rem;
+}
+
+.adventurer {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.sage {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.prince {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.sorcerer {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.warrior  {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.poet {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.rogue {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.labourer {
+  grid-column: 4;
+  grid-row: 2;
+}

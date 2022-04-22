@@ -1,0 +1,11 @@
+.resource-label {
+  font-weight: bold;
+}
+
+.skill-label, .item-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: left;
+}
+

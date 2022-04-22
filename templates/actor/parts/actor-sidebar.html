@@ -1,0 +1,99 @@
+{{!-- Health and derived stats --}}
+<div class="healthStats flexcol">
+        <div class="health flex flexrow flex-group-center">
+                <label for="data.health.value"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.Health"}}</label>
+                <div class="flex flexrow flex-group-center">
+                        <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" />
+                        <span>/</span>
+                        <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"
+                                disabled />
+                </div>
+                <span class="span-spacer"></span>
+        </div>
+        <div class="soak flex flexrow flex-group-center">
+                <label for="data.soak.value"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.Soak"}}</label>
+                <input type="text" name="data.soak.value" value="{{data.soak.value}}" data-dtype="Number" />
+                <input type="text" class="armor-display" name="data.soak.armor" value="{{data.soak.armor}}"
+                        data-dtype="Number" />
+        </div>
+        <div class="init flex flexrow flex-group-center">
+                <label for="data.init"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.Init"}}</label>
+                <input type="text" name="data.init" value="{{data.init}}" data-dtype="Number" disabled />
+                <span class="span-spacer"></span>
+        </div>
+        <div class="defence flex flexrow flex-group-center">
+                <label for="data.defence"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.Defence"}}</label>
+                <input type="text" name="data.defence" value="{{data.defence}}" data-dtype="Number" disabled />
+                <span class="span-spacer"></span>
+        </div>
+        <div class="adventure-points flex flexrow flex-group-center">
+                <label for="data.adventure_points"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.AdventurePoints"}}</label>
+                <input type="text" name="data.adventure_points" value="{{data.adventure_points}}" data-dtype="Number" />
+                <span class="span-spacer"></span>
+        </div>
+</div>
+
+<hr class="hidden">
+
+{{!-- Attributes --}}
+<div class="attributes flexcol">
+        <h2>{{localize "CAPHARNAUM.AttributesTitle"}}</h2>
+        {{#each data.attributes as |attribute key|}}
+                <div class="attribute flexrow flex-group-center">
+                        <label for="data.attributes.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                                data-roll="(@attributes.{{key}}.value)d6"
+                                data-label="{{attribute.label}}">{{attribute.label}}</label>
+                        <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}"
+                                data-dtype="Number" />
+                        <span class="span-spacer"></span>
+                </div>
+        {{/each}}
+</div>
+
+<hr class="hidden">
+
+{{!-- Virtues --}}
+<div class="virtues flexcol">
+        <h2>Virtues</h2>
+
+        <div class="virtue flex flexrow flex-group-center">
+                <label for="data.virtues.heroism.value"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.VirtueHeroism"}}</label>
+                <input type="text" name="data.virtues.heroism.value" value="{{data.virtues.heroism.value}}"
+                        data-dtype="Number" />
+                <span class="span-spacer"></span>
+        </div>
+
+        <div class="virtue flex flexrow flex-group-center">
+                <label for="data.virtues.bravery.value"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.VirtueBravery"}}</label>
+                <input type="text" name="data.virtues.bravery.value" value="{{data.virtues.bravery.value}}"
+                        data-dtype="Number" />
+                <input type="text" class="star-display" name="data.virtues.bravery.stars"
+                        value="{{data.virtues.bravery.stars}}" data-dtype="Number" />
+        </div>
+
+        <div class="virtue flex flexrow flex-group-center">
+                <label for="data.virtues.loyalty.value"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.VirtueLoyalty"}}</label>
+                <input type="text" name="data.virtues.loyalty.value" value="{{data.virtues.loyalty.value}}"
+                        data-dtype="Number" />
+                <input type="text" class="star-display" name="data.virtues.loyalty.stars"
+                        value="{{data.virtues.loyalty.stars}}" data-dtype="Number" />
+        </div>
+
+        <div class="virtue flex flexrow flex-group-center">
+                <label for="data.virtues.faith.value"
+                        class="resource-label flexlarge align-left">{{localize "CAPHARNAUM.VirtueFaith"}}</label>
+                <input type="text" name="data.virtues.faith.value" value="{{data.virtues.faith.value}}"
+                        data-dtype="Number" />
+                <input type="text" class="star-display" name="data.virtues.faith.stars"
+                        value="{{data.virtues.faith.stars}}" data-dtype="Number" />
+        </div>
+
+</div>

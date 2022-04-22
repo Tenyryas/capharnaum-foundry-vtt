@@ -1,0 +1,18 @@
+{{#each data.skills as |figure keyF|}}
+<div class="figure {{keyF}} grid-2col">
+        <h3 class="resource-label flexlarge align-center grid-span-2" data-label="{{figure.label}}">{{figure.label}}</h3>
+
+        <div class="skills flexlarge grid-2col grid-span-2">
+        {{#each figure as |skill keyS|}}
+                {{#unless label}}
+                        
+                {{else}}
+                        <label for="data.skills.{{keyF}}.{{keyS}}.value" class="resource-label skill-label flexlarge align-left"
+                                data-roll="" data-label="{{figure.key.label}}">{{skill.label}}</label>
+                        <input type="text" class="flexlarge" name="data.skills.{{keyF}}.{{keyS}}.value" value="{{skill.value}}"
+                                data-dtype="Number" />
+                {{/unless}}
+        {{/each}}
+        </div>
+</div>
+{{/each}}

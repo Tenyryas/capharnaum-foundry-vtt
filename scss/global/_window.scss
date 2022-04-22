@@ -1,0 +1,38 @@
+
+
+.window-app {
+  font-family: $font-primary;
+}
+
+.rollable {
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+}
+
+.capharnaum .window-content {
+  background: url(../assets/ui/parchment.jpg) center/160%;
+}
+
+.sidebar {
+  padding-right: 2px;
+  border-right: 1px solid $c-brown;
+}
+
+.capharnaum h2 {
+  border-bottom: 1px solid $c-brown;
+}
+
+.capharnaum input {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid $c-brown;
+  background-color: transparent;
+}
+
+.capharnaum input:disabled {
+  border-bottom: 0;
+}

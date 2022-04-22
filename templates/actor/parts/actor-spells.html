@@ -1,0 +1,57 @@
+<div class="spells-list">
+
+  <div class="grid grid-3col grid-magic-verbs">
+
+    <div class="magic-verbs">
+      <label for="data.magic.create" class="resource-label align-center">{{localize "CAPHARNAUM.MagicCreate"}}</label>
+      <input type="text" name="data.magic.create" value="{{data.magic.create}}" data-dtype="Number" />
+    </div>
+
+    <div class="magic-verbs">
+      <label for="data.magic.transform"
+        class="resource-label align-center">{{localize "CAPHARNAUM.MagicTransform"}}</label>
+      <input type="text" name="data.magic.transform" value="{{data.magic.transform}}" data-dtype="Number" />
+    </div>
+
+    <div class="magic-verbs">
+      <label for="data.magic.destroy" class="resource-label align-center">{{localize "CAPHARNAUM.MagicDestroy"}}</label>
+      <input type="text" name="data.magic.destroy" value="{{data.magic.destroy}}" data-dtype="Number" />
+    </div>
+
+  </div>
+
+  <div class="grid grid-2col grid-magic">
+    <ol class="items-list">
+      <li class="item grid grid-4col items-header">
+        <div class="item-name grid-span-2">Element</div>
+        <div class="item-name">Type</div>
+        <div class="item-controls">
+          <a class="item-control item-create" title="Create item" data-type="magic_word"><i class="fas fa-plus"></i>
+            Add</a>
+        </div>
+      </li>
+      {{#each magic_word as |item id|}}
+        <li class="item grid grid-4col" data-item-id="{{item._id}}">
+          <div class="item-name grid-span-2">
+            <div class="item-image">
+              <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
+                  height="24" /></a>
+            </div>
+            <h4>{{item.name}}</h4>
+          </div>
+          <div class="ability-level">
+            <h4>{{item.data.type}}</h4>
+          </div>
+          <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+    <div class="editor spellList-content">
+      {{editor class="editor-spellList" content=data.magic.spellList target="data.magic.spellList" rollData=rollData button=true owner=owner
+      editable=editable}}
+    </div>
+  </div>
+</div>

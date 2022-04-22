@@ -1,0 +1,32 @@
+<form class="{{cssClass}} item-sheet" autocomplete="off">
+        <header class="sheet-header">
+                <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+                <div class="header-fields">
+                        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+                        </h1>
+                </div>
+        </header>
+        <hr>
+        {{!-- Sheet Body --}}
+        <section class="item-sheet-body grid grid-7col">
+
+                <aside class="sidebar grid-span-2">
+                        <div class="grid grid-items">
+                                <label for="data.level"
+                                        class="resource-label align-left item-label">{{localize "CAPHARNAUM.AbilityLevel"}}</label>
+                                <input type="text" name="data.level" value="{{data.level}}" data-dtype="Number" />
+
+                                <label for="data.path"
+                                        class="resource-label align-left item-label">{{localize "CAPHARNAUM.AbilityPath"}}</label>
+                                <input type="text" name="data.path" value="{{data.path}}" data-dtype="String" />
+                        </div>
+                </aside>
+
+                {{!-- Description Tab --}}
+                <div class="description grid-span-5">
+                        {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+                </div>
+
+
+        </section>
+</form>
