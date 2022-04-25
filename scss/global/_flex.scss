@@ -1,4 +1,9 @@
 // Flexbox.
+
+.flex {
+  display: flex;
+}
+
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
@@ -43,4 +48,8 @@
 .align-center {
   justify-content: center;
   text-align: center;
+}
+
+.self-align-end {
+  align-self: flex-end;
 }

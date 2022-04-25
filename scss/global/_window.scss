@@ -23,16 +23,13 @@
 }
 
 .capharnaum h2 {
-  border-bottom: 1px solid $c-brown;
+  border-bottom: 4px solid $c-brown;
+  max-width: 100px;
 }
 
 .capharnaum input {
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid $c-brown;
+  border-bottom: none;
   background-color: transparent;
-}
-
-.capharnaum input:disabled {
-  border-bottom: 0;
 }

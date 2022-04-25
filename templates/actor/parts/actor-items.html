@@ -1,5 +1,5 @@
-<div class="grid grid-2col">
-  <ol class="items-list">
+<div class="grid">
+  <ol class="items-list grid-span-2">
     <li class="item grid grid-6col items-header">
       <div class="item-name grid-span-3">Weapons</div>
       <div class="item-name">Damage</div>
@@ -31,9 +31,9 @@
     {{/each}}
   </ol>
 
-  <ol class="items-list">
-    <li class="item grid grid-5col items-header">
-      <div class="item-name grid-span-2">Armors</div>
+  <ol class="items-list grid-span-2">
+    <li class="item grid grid-6col items-header">
+      <div class="item-name grid-span-3">Armors</div>
       <div class="item-name">Protection</div>
       <div class="item-name">Weight</div>
       <div class="item-controls">
@@ -41,8 +41,8 @@
       </div>
     </li>
     {{#each armor as |item id|}}
-      <li class="item grid grid-5col" data-item-id="{{item._id}}">
-        <div class="item-name grid-span-2">
+      <li class="item grid grid-6col" data-item-id="{{item._id}}">
+        <div class="item-name grid-span-3">
           <div class="item-image">
             <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
                 height="24" /></a>
@@ -64,8 +64,8 @@
   </ol>
 
   <ol class="items-list grid-span-2">
-    <li class="item grid grid-4col items-header">
-      <div class="item-name">Gear</div>
+    <li class="item grid grid-6col items-header">
+      <div class="item-name grid-span-3">Gear</div>
       <div class="item-name">Quantity</div>
       <div class="item-name">Weight</div>
       <div class="item-controls">
@@ -73,8 +73,8 @@
       </div>
     </li>
     {{#each gear as |item id|}}
-      <li class="item grid grid-4col" data-item-id="{{item._id}}">
-        <div class="item-name flexrow">
+      <li class="item grid grid-6col" data-item-id="{{item._id}}">
+        <div class="item-name flexrow grid-span-3">
           <div class="item-image">
             <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
                 height="24" /></a>

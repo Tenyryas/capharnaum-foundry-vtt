@@ -20,8 +20,8 @@
 
   </div>
 
-  <div class="grid grid-2col grid-magic">
-    <ol class="items-list">
+  <div class="grid grid-2col">
+    <ol class="items-list grid-span-2">
       <li class="item grid grid-4col items-header">
         <div class="item-name grid-span-2">Element</div>
         <div class="item-name">Type</div>
@@ -49,7 +49,7 @@
         </li>
       {{/each}}
     </ol>
-    <div class="editor spellList-content">
+    <div class="editor spellList-content grid-span-2">
       {{editor class="editor-spellList" content=data.magic.spellList target="data.magic.spellList" rollData=rollData button=true owner=owner
       editable=editable}}
     </div>

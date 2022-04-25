@@ -11,8 +11,8 @@ export class CapharnaumActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["capharnaum", "sheet", "actor"],
       template: "systems/capharnaum/templates/actor/actor-dragon-marked-sheet.html",
-      width: 1050,
-      height: 780,
+      width: 650,
+      height: 750,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
     });
   }
@@ -272,6 +272,24 @@ export class CapharnaumActorSheet extends ActorSheet {
       });
       return roll;
     }
+  }
+
+  rollAttribute(attribute) {
+    const actorData = this.data;
+
+    const label = actorData.data[attribute].label;
+    const dice = actorData.data[attribute].value + actorData.data.virtues.heroism.max;
+    const dragon = actorData.data.dragon_dice;
+    const total = dice - dragon;
+
+    let roll = new Roll("(@total)d6 + (@dragon)d6x", {total: total, dragon: dragon});
+
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
+    return roll;
   }
 
 }
