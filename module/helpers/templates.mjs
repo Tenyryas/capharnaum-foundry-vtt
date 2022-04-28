@@ -7,12 +7,12 @@
   return loadTemplates([
 
     // Actor partials.
-    "systems/capharnaum/templates/actor/parts/actor-features.html",
     "systems/capharnaum/templates/actor/parts/actor-items.html",
     "systems/capharnaum/templates/actor/parts/actor-spells.html",
     "systems/capharnaum/templates/actor/parts/actor-effects.html",
     "systems/capharnaum/templates/actor/parts/actor-skills.html",
     "systems/capharnaum/templates/actor/parts/actor-sidebar.html",
     "systems/capharnaum/templates/actor/parts/actor-path-abilities.html",
+    "systems/capharnaum/templates/actor/parts/npc-skills.html",
   ]);
 };

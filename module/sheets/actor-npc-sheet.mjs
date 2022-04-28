@@ -5,13 +5,13 @@ import { handlebarsHelpers } from "../helpers/handlebarsHelpers.mjs";
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class CapharnaumActorSheet extends ActorSheet {
+export class CapharnaumNpcSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["capharnaum", "sheet", "actor"],
-      template: "systems/capharnaum/templates/actor/actor-dragon-marked-sheet.html",
+      template: "systems/capharnaum/templates/actor/actor-npc-sheet.html",
       width: 700,
       height: 835,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
@@ -20,7 +20,7 @@ export class CapharnaumActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/capharnaum/templates/actor/actor-dragon-marked-sheet.html`;
+    return "systems/capharnaum/templates/actor/actor-npc-sheet.html";
   }
 
   /* -------------------------------------------- */
@@ -40,11 +40,9 @@ export class CapharnaumActorSheet extends ActorSheet {
     context.data = actorData.data;
     context.flags = actorData.flags;
 
-    // Prepare character data and items.
-    if (actorData.type == 'Dragon-marked') {
-      this._prepareItems(context);
-      this._prepareCharacterData(context);
-    }
+    // Prepare NPC data and items.
+    this._prepareCharacterData(context);
+    this._prepareItems(context);
 
     // register Handlebars helpers
     handlebarsHelpers();
@@ -79,6 +77,8 @@ export class CapharnaumActorSheet extends ActorSheet {
 
       v.label = game.i18n.localize(CONFIG.CAPHARNAUM.figures[k]) ?? k;
     }
+
+
   }
 
   /**
@@ -95,17 +95,6 @@ export class CapharnaumActorSheet extends ActorSheet {
     const armor = [];
     const path_ability = [];
     const magic_word = [];
-    const spells = {
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -130,12 +119,6 @@ export class CapharnaumActorSheet extends ActorSheet {
       if (i.type === 'path_ability') {
         path_ability.push(i);
       }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
-        }
-      }
     }
 
     // Assign and return
@@ -144,7 +127,6 @@ export class CapharnaumActorSheet extends ActorSheet {
     context.armor = armor;
     context.magic_word = magic_word;
     context.path_ability = path_ability;
-    context.spells = spells;
   }
 
   /* -------------------------------------------- */
@@ -179,9 +161,7 @@ export class CapharnaumActorSheet extends ActorSheet {
     html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
 
     // Rollable attributes.
-    html.find('.rollableAttribute').click(this._onRollAttribute.bind(this));
-
-    html.find('.resetHeroism').click(this._onHeroClick.bind(this));
+    html.find('.rollable').click(this._onRoll.bind(this));
 
     // Drag events for macros.
     if (this.actor.isOwner) {
@@ -253,132 +233,28 @@ export class CapharnaumActorSheet extends ActorSheet {
     }
   }
 
+  rollAttribute(attribute) {
+    const actorData = this.data;
 
-  /**
-   * Handles heroism recalculation
-   * @private
-   */
-  async _onHeroClick() {
-
-    // Use a safe clone of the actor data for further operations.
-    const user = game.user;
-    const actorData = this.actor.data.toObject(false);
-    const virtues = actorData.data.virtues;
-
-
-    virtues.heroism.max = Math.floor((virtues.bravery.value + virtues.faith.value + virtues.loyalty.value) / 3);
-
-    virtues.heroism.value = virtues.heroism.max;
-
-    // Update the values on the sheet
-    this.document.update(
-      {
-        "data.virtues.heroism.value": virtues.heroism.value,
-        "data.virtues.heroism.max": virtues.heroism.max,
-      }
-    );
-
-    const message = await renderTemplate(
-      "systems/capharnaum/templates/chat/heroism-reset.html",
-      { target: actorData, speaker: user }
-    );
-
-
-    const chatData = {
-      content: message,
-    };
-    ChatMessage.create(chatData);
-
-
-  }
-
-  _onRollAttribute(event) {
-
-    // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
-
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-    let attribute;
-
-    // Grabs the right attribute from the label
-    switch (dataset.label) {
-      case game.i18n.localize(CONFIG.CAPHARNAUM.attributes["str"]):
-        attribute = "str";
-        break;
-
-      case game.i18n.localize(CONFIG.CAPHARNAUM.attributes["dex"]):
-        attribute = "dex";
-        break;
-
-      case game.i18n.localize(CONFIG.CAPHARNAUM.attributes["con"]):
-        attribute = "con";
-        break;
-
-      case game.i18n.localize(CONFIG.CAPHARNAUM.attributes["int"]):
-        attribute = "int";
-        break;
-
-      case game.i18n.localize(CONFIG.CAPHARNAUM.attributes["cha"]):
-        attribute = "cha";
-        break;
-
-      default:
-        break;
-    }
-
-    const dice = actorData.data.attributes[attribute].value + actorData.data.virtues.heroism.max;
+    const label = actorData.data[attribute].label;
+    const dice = actorData.data[attribute].value + actorData.data.virtues.heroism.max;
     const dragon = actorData.data.dragon_dice;
     let total = dice - dragon;
     let roll;
 
-    let formula;
-
-
-    // Check if total of dice is less or equal to 0.
-    // If it is, roll as much dragon dice as possible (const dice)
-    // If not, roll as normal
     if (total <= 0) {
-      formula = dice + "d6x[Dragon Dice]";
-      roll = new Roll(formula);
-    } else {
-
-      formula = total + "d6";
-
-      for (let i = 0; i < dragon; i++) {
-
-        let dragonDieString;
-
-        if (dragon === 1) {
-          dragonDieString = `1d6x[${game.i18n.localize("CAPHARNAUM.DragonDie")}]`;
-        }
-        else {
-          dragonDieString = `1d6x[${game.i18n.localize("CAPHARNAUM.DragonDie")} ${i + 1}]`;
-        }
-        formula = formula.concat(" + ", dragonDieString);
-
-      }
-
-      roll = new Roll(formula);
+      roll = new Roll("(@dragon)d6x", { dragon: dragon });
+    }
+    else {
+      roll = new Roll("(@total)d6 + (@dragon)d6x", { total: total, dragon: dragon });
     }
 
-    // Prepare message
-
-    console.log(
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `${dataset.label} ${game.i18n.localize("CAPHARNAUM.AttributeTest")}`,
+      flavor: label,
       rollMode: game.settings.get('core', 'rollMode'),
-    })
-    );
-
-    // Sort dice by result
-
-    roll.dice[0].results.sort(function (a, b) { return a.result - b.result });
-
+    });
     return roll;
   }
-
 
 }

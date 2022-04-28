@@ -4,7 +4,18 @@
   font-family: $font-primary;
 }
 
-.rollable {
+.rollableAttribute {
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+}
+
+.resetHeroism {
+  color: #877555;
+
   &:hover,
   &:focus {
     color: #000;
@@ -19,11 +30,11 @@
 
 .sidebar {
   padding-right: 2px;
-  border-right: 1px solid $c-brown;
+  border-right: 1px solid $c-brown-alpha5;
 }
 
 .capharnaum h2 {
-  border-bottom: 4px solid $c-brown;
+  border-bottom: 4px solid $c-brown-alpha5;
   max-width: 100px;
 }
 
@@ -33,3 +44,6 @@
   border-bottom: none;
   background-color: transparent;
 }
+
+.dice-tooltip {display:block !important}
+.dice-total,.dice-formula {display:none !important}

@@ -23,11 +23,11 @@
   <div class="grid grid-2col">
     <ol class="items-list grid-span-2">
       <li class="item grid grid-4col items-header">
-        <div class="item-name grid-span-2">Element</div>
-        <div class="item-name">Type</div>
+        <div class="item-name grid-span-2">{{localize "CAPHARNAUM.MagicWordElement"}}</div>
+        <div class="item-name">{{localize "CAPHARNAUM.MagicWordType"}}</div>
         <div class="item-controls">
           <a class="item-control item-create" title="Create item" data-type="magic_word"><i class="fas fa-plus"></i>
-            Add</a>
+            {{localize "CAPHARNAUM.Add"}}</a>
         </div>
       </li>
       {{#each magic_word as |item id|}}
@@ -43,14 +43,14 @@
             <h4>{{item.data.type}}</h4>
           </div>
           <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-edit" title="{{localize "CAPHARNAUM.SpellsEditSpell"}}"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize "CAPHARNAUM.SpellsDeleteSpell"}}"><i class="fas fa-trash"></i></a>
           </div>
         </li>
       {{/each}}
     </ol>
-    <div class="editor spellList-content grid-span-2">
-      {{editor class="editor-spellList" content=data.magic.spellList target="data.magic.spellList" rollData=rollData button=true owner=owner
+    <div class="editor-spellList spellList-content grid-span-2">
+      {{editor content=data.magic.spellList target="data.magic.spellList" rollData=rollData button=true owner=owner
       editable=editable}}
     </div>
   </div>

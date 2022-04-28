@@ -34,7 +34,8 @@
   flex: 0 0 150px;
   height: 150px;
   margin: 0 auto;
-
+  border: 1px solid $c-brown-alpha5;
+  border-radius: 2px;
 }
 
 .sheet-tabs {
@@ -42,14 +43,16 @@
 }
 
 .sheet-body,
-.sheet-body .tab,
-.sheet-body .tab .editor {
+.sheet-body .tab {
   height: max-content;
 }
 
-div.tox.tox-tinymce,
 .sheet-body .tab .editor {
-  height: 50vh !important;
+  height: 53vh !important;
+}
+
+.sheet-body .tab .editor-spellList {
+  height: 38vh !important;
 }
 
 .tox {
@@ -74,12 +77,19 @@ input.input-text-sidebar:disabled {
   max-width: 2.7rem;
 }
 
+.input-text-sidebar.heroism {
+  background-color: transparent;
+  max-width: 1.3rem;
+}
+
 .input-text-sidebar {
   max-width: 2.2rem;
   font-size: 20px;
-  background-color: $c-brown;
+  background-color: $c-brown-alpha3;
   border-radius: 3px;
 }
+
+
 
 .input-text-sidebar.slash {
   max-width: fit-content;
@@ -139,13 +149,13 @@ input.input-text-sidebar:disabled {
   grid-row: auto;
   grid-column: auto;
   gap: 0px;
-
   font-size: 0.8rem;
-  border: 1px solid $c-brown;
+  border: 1px solid $c-brown-alpha5;
+  margin: 0;
 }
 
 .figure h3 {
-  border-bottom: 1px solid $c-brown;
+  border-bottom: 1px solid $c-brown-alpha5;
   display: flex;
   flex-direction: column;
 }
@@ -160,7 +170,7 @@ input.input-text-sidebar:disabled {
   max-width: 4rem;
   justify-content: flex-end;
   font-size: 1.5rem;
-  background-color: $c-brown;
+  background-color: $c-brown-alpha3;
   border-radius: 3px;
 }
 
@@ -175,7 +185,7 @@ input.input-text-sidebar:disabled {
 }
 
 .spellList-content {
-  border: 1px solid $c-brown;
+  border: 1px solid $c-brown-alpha5;
   border-radius: 2px;
   padding: 0.5rem 1rem 0 1rem;
 }
@@ -185,32 +195,32 @@ input.input-text-sidebar:disabled {
   grid-row: 1;
 }
 
-.sage {
+.warrior {
   grid-column: 2;
   grid-row: 1;
 }
 
-.prince {
+.sage {
   grid-column: 1;
   grid-row: 2;
-}
-
-.sorcerer {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.warrior {
-  grid-column: 1;
-  grid-row: 3;
 }
 
 .poet {
   grid-column: 2;
+  grid-row: 2;
+}
+
+.prince {
+  grid-column: 1;
   grid-row: 3;
 }
 
 .rogue {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.sorcerer {
   grid-column: 1;
   grid-row: 4;
 }

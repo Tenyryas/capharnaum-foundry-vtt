@@ -1,18 +1,22 @@
 <div class="grid">
+
+  {{!-- Weapon list --}}
+
   <ol class="items-list grid-span-2">
     <li class="item grid grid-6col items-header">
-      <div class="item-name grid-span-3">Weapons</div>
-      <div class="item-name">Damage</div>
-      <div class="item-name">Weight</div>
+      <div class="item-name grid-span-3">{{localize "CAPHARNAUM.GearWeapons"}}</div>
+      <div class="item-name">{{localize "CAPHARNAUM.GearDamage"}}</div>
+      <div class="item-name">{{localize "CAPHARNAUM.GearWeight"}}</div>
       <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i> Add</a>
+        <a class="item-control item-create" title="Create item" data-type="weapon"><i class="fas fa-plus"></i>
+          {{localize "CAPHARNAUM.Add"}}</a>
       </div>
     </li>
     {{#each weapon as |item id|}}
       <li class="item grid grid-6col" data-item-id="{{item._id}}">
         <div class="item-name grid-span-3">
           <div class="item-image">
-            <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
+            <a class="" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
                 height="24" /></a>
           </div>
           <h4>{{item.name}}</h4>
@@ -24,27 +28,32 @@
           <h4>{{item.data.weight}}</h4>
         </div>
         <div class="item-controls">
-          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          <a class="item-control item-edit" title="{{localize "CAPHARNAUM.GearEditItem"}}"><i
+              class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" title="{{localize "CAPHARNAUM.GearDeleteItem"}}"><i
+              class="fas fa-trash"></i></a>
         </div>
       </li>
     {{/each}}
   </ol>
 
+  {{!-- Armor list --}}
+
   <ol class="items-list grid-span-2">
     <li class="item grid grid-6col items-header">
-      <div class="item-name grid-span-3">Armors</div>
-      <div class="item-name">Protection</div>
-      <div class="item-name">Weight</div>
+      <div class="item-name grid-span-3">{{localize "CAPHARNAUM.GearArmors"}}</div>
+      <div class="item-name">{{localize "CAPHARNAUM.GearProtection"}}</div>
+      <div class="item-name">{{localize "CAPHARNAUM.GearWeight"}}</div>
       <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i> Add</a>
+        <a class="item-control item-create" title="Create item" data-type="armor"><i class="fas fa-plus"></i>
+          {{localize "CAPHARNAUM.Add"}}</a>
       </div>
     </li>
     {{#each armor as |item id|}}
       <li class="item grid grid-6col" data-item-id="{{item._id}}">
         <div class="item-name grid-span-3">
           <div class="item-image">
-            <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
+            <a class="" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
                 height="24" /></a>
           </div>
           <h4>{{item.name}}</h4>
@@ -63,20 +72,24 @@
     {{/each}}
   </ol>
 
+
+  {{!-- Gear list --}}
+
   <ol class="items-list grid-span-2">
     <li class="item grid grid-6col items-header">
-      <div class="item-name grid-span-3">Gear</div>
-      <div class="item-name">Quantity</div>
-      <div class="item-name">Weight</div>
+      <div class="item-name grid-span-3">{{localize "CAPHARNAUM.GearGear"}}</div>
+      <div class="item-name">{{localize "CAPHARNAUM.GearQuantity"}}</div>
+      <div class="item-name">{{localize "CAPHARNAUM.GearWeight"}}</div>
       <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i> Add</a>
+        <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i>
+          {{localize "CAPHARNAUM.Add"}}</a>
       </div>
     </li>
     {{#each gear as |item id|}}
       <li class="item grid grid-6col" data-item-id="{{item._id}}">
         <div class="item-name flexrow grid-span-3">
           <div class="item-image">
-            <a class="rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
+            <a class="" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24"
                 height="24" /></a>
           </div>
           <h4>{{item.name}}</h4>

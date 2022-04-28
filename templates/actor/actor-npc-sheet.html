@@ -5,6 +5,15 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+
+      {{!-- Select subtype --}}
+      <select name="data.subtype" value="{{data.subtype}}">
+        {{#select data.subtype}}
+          <option value="Babouches Dragger">Babouches Dragger</option>
+          <option value="Valiant Captain">Valiant Captain</option>
+          <option value="Champion">Champion</option>
+        {{/select}}
+      </select>
     </div>
   </header>
 
@@ -31,10 +40,10 @@
       <section class="grid grid-4col">
 
         {{!-- For the main features list, span the right two columns --}}
-        <section class="main grid-span-4 grid grid-figures">
+        <section class="main grid-span-4">
           {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in
           module/helpers/templates.mjs --}}
-          {{> "systems/capharnaum/templates/actor/parts/actor-skills.html"}}
+          {{> "systems/capharnaum/templates/actor/parts/npc-skills.html"}}
         </section>
 
       </section>

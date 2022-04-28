@@ -2,8 +2,7 @@
     "Actor": {
         "types": [
             "Dragon-marked",
-            "Valiant Captain",
-            "Babouches Dragger"
+            "npc"
         ],
         "templates": {
             "background": {
@@ -231,27 +230,20 @@
         "Dragon-marked": {
             "templates": [
                 "background",
-                "hp",
+                "derived_stats",
                 "attributes",
                 "skills",
                 "virtues"
             ],
             "adventure_points": 0
         },
-        "Valiant Captain": {
+        "npc": {
+            "subtype": "Babouches Dragger",
             "templates": [
                 "background",
                 "attributes",
                 "skills",
-                "hp"
-            ]
-        },
-        "Babouches Dragger": {
-            "templates": [
-                "attributes",
-                "skills",
-                "background",
-                "hp"
+                "derived_stats"
             ]
         }
     },

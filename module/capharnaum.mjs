@@ -3,6 +3,7 @@ import { CapharnaumActor } from "./documents/actor.mjs";
 import { CapharnaumItem } from "./documents/item.mjs";
 // Import sheet classes.
 import { CapharnaumActorSheet } from "./sheets/actor-sheet.mjs";
+import { CapharnaumNpcSheet } from "./sheets/actor-npc-sheet.mjs";
 import { CapharnaumItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
@@ -40,9 +41,22 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("capharnaum", CapharnaumActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("capharnaum", CapharnaumItemSheet, { makeDefault: true });
+
+  Actors.registerSheet("capharnaum", CapharnaumActorSheet, { 
+    types: ["Dragon-marked"],
+    makeDefault: true,
+    label: "CAPHARNAUM.DragonMarkedSheet" 
+  });
+  Actors.registerSheet("capharnaum", CapharnaumNpcSheet, { 
+    types: ["npc"],
+    makeDefault: true,
+    label: "CAPHARNAUM.NpcSheet"  
+  });
+
+  Items.registerSheet("capharnaum", CapharnaumItemSheet, { 
+    makeDefault: true 
+  });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();

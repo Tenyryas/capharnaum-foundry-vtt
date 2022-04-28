@@ -43,7 +43,7 @@ export class CapharnaumActor extends Actor {
     this._prepareNpcData(actorData);
 
     // Max HP
-    if( actorData.type =="Dragon-marked" || actorData.type =="Valiant Captain") {
+    if( actorData.type =="Dragon-marked" || actorData.data.subtype != "Babouches Dragger") {
       actorData.data.health.max = statCon * 10;
     }
     else {
