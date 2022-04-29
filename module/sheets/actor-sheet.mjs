@@ -340,8 +340,25 @@ export class CapharnaumActorSheet extends ActorSheet {
     // If it is, roll as much dragon dice as possible (const dice)
     // If not, roll as normal
     if (total <= 0) {
-      formula = dice + "d6x[Dragon Dice]";
+
+      formula = "";
+
+      for (let i = 0; i < dice; i++) {
+
+        let dragonDieString;
+
+        if (dragon === 1) {
+          dragonDieString = `1d6x[${game.i18n.localize("CAPHARNAUM.DragonDie")}]`;
+        }
+        else {
+          dragonDieString = `1d6x[${game.i18n.localize("CAPHARNAUM.DragonDie")} ${i + 1}]`;
+        }
+        formula = formula.concat(" + ", dragonDieString);
+
+      }
+
       roll = new Roll(formula);
+
     } else {
 
       formula = total + "d6";

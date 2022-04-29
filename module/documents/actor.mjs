@@ -43,21 +43,26 @@ export class CapharnaumActor extends Actor {
     this._prepareNpcData(actorData);
 
     // Max HP
-    if( actorData.type =="Dragon-marked" || actorData.data.subtype != "Babouches Dragger") {
-      actorData.data.health.max = statCon * 10;
+    if( actorData.type =="Dragon-marked" || data.subtype != "Babouches Dragger") {
+      data.health.max = statCon * 10;
     }
     else {
-      actorData.data.health.max = 6;
+      data.health.max = 6;
+    }
+
+
+    if( actorData.type == "Dragon-marked") {
+      data.soak.value = statCon + data.virtues.heroism.max + data.soak.armor;
     }
 
     // Soak
     // actorData.data.soak.value = (statCon + actorData.data.virtues.heroism.max + actorData.data.soak.armor);
 
     // Init
-    actorData.data.init = 1 + Math.floor((statCon + statDex + statInt) / 3);
+    data.init = 1 + Math.floor((statCon + statDex + statInt) / 3);
 
     // Passive defence
-    actorData.data.defence = 6 + statDex + skillAth;
+    data.defence = 6 + statDex + skillAth;
 
 
   }
