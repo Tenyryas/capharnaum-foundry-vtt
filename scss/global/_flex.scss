@@ -6,7 +6,8 @@
 
 .flex-group-center,
 .flex-group-left,
-.flex-group-right {
+.flex-group-right,
+.flex-around {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -28,6 +29,10 @@
 
 .flex-between {
   justify-content: space-between;
+}
+
+.flex-around {
+  justify-content: space-around;
 }
 
 .flexlarge {

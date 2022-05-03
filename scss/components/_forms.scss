@@ -42,17 +42,17 @@
   flex: 0;
 }
 
-.sheet-body,
-.sheet-body .tab {
-  height: max-content;
+.sheet-body {
+  height: 55vh;
+  overflow-y: scroll;
 }
 
 .sheet-body .tab .editor {
-  height: 53vh !important;
+  height: 54vh !important;
 }
 
 .sheet-body .tab .editor-spellList {
-  height: 38vh !important;
+  height: 39vh !important;
 }
 
 .tox {

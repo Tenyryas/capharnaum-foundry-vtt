@@ -7,8 +7,8 @@
                 {{#unless label}}
                         
                 {{else}}
-                        <label for="data.skills.{{keyF}}.{{keyS}}.value" class="resource-label skill-label flexlarge align-left"
-                                data-roll="" data-label="{{figure.key.label}}">{{skill.label}}</label>
+                        <label for="data.skills.{{keyF}}.{{keyS}}.value" class="rollableSkill resource-label skill-label flexlarge align-left" data-figure="{{keyF}}"
+                                data-skill="{{keyS}}">{{skill.label}}</label>
                         <input type="text" class="flexlarge" name="data.skills.{{keyF}}.{{keyS}}.value" value="{{skill.value}}"
                                 data-dtype="Number" />
                 {{/unless}}

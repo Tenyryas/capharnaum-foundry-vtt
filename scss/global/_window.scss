@@ -4,7 +4,7 @@
   font-family: $font-primary;
 }
 
-.rollableAttribute {
+.rollableAttribute, .rollableSkill {
   &:hover,
   &:focus {
     color: #000;
@@ -26,6 +26,7 @@
 
 .capharnaum .window-content {
   background: url(../assets/ui/parchment.webp) center/160%;
+  overflow-y: hidden;
 }
 
 .sidebar {
