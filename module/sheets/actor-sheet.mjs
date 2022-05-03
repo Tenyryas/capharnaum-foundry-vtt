@@ -1,5 +1,6 @@
 import { onManageActiveEffect, prepareActiveEffectCategories } from "../helpers/effects.mjs";
 import { handlebarsHelpers } from "../helpers/handlebarsHelpers.mjs";
+import "../helpers/sheetFunctions.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -339,7 +340,7 @@ export class CapharnaumActorSheet extends ActorSheet {
     const rendered_dialog = await renderTemplate("systems/capharnaum/templates/dialogs/rollDialog.html");
 
     let d = new Dialog({
-      title: game.i18n.localize("CAPHARNAUM.SkillRoll"),
+      title: `${game.i18n.localize("CAPHARNAUM.SkillRoll")} - ${game.i18n.localize(CONFIG.CAPHARNAUM.skills[skill])}`,
       content: rendered_dialog,
       buttons: {
         roll: {
