@@ -43,12 +43,21 @@
 }
 
 .sheet-body {
-  height: 55vh;
-  overflow-y: scroll;
+
+  .tab {
+    overflow-y: auto;
+    max-height: 55vh;
+    padding-right: 10px;
+  }
+
+  .biography {
+    overflow-y: auto;
+  }
 }
 
 .sheet-body .tab .editor {
-  height: 54vh !important;
+  height: 75vh !important;
+  overflow: auto;
 }
 
 .sheet-body .tab .editor-spellList {
