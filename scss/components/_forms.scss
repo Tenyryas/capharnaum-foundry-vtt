@@ -103,12 +103,13 @@ input.input-text-sidebar:disabled {
   background-image: url(../assets/ui/sheet_armor.svg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;
 
   border: 0;
   background-color: transparent;
-  width: 1rem;
-  max-width: 1rem;
-  margin-left: 4px;
+  width: 2rem;
+  max-width: 2rem;
+  margin-left: -5px;
   color: #fff;
 }
 
