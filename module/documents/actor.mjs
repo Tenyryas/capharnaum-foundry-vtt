@@ -59,7 +59,7 @@ export class CapharnaumActor extends Actor {
     // actorData.data.soak.value = (statCon + actorData.data.virtues.heroism.max + actorData.data.soak.armor);
 
     // Init
-    data.init = 1 + Math.floor((statCon + statDex + statInt) / 3);
+    data.init = 1 + Math.round((statCon + statDex + statInt) / 3);
 
     // Passive defence
     data.defence = 6 + statDex + skillAth;
