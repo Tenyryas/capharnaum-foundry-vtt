@@ -1,6 +1,7 @@
 // Import document classes.
 import { CapharnaumActor } from "./documents/actor.mjs";
 import { CapharnaumItem } from "./documents/item.mjs";
+import { CapharnaumCombat } from "./documents/caphCombat.mjs";
 // Import sheet classes.
 import { CapharnaumActorSheet } from "./sheets/actor-sheet.mjs";
 import { CapharnaumNpcSheet } from "./sheets/actor-npc-sheet.mjs";
@@ -15,12 +16,15 @@ import { CAPHARNAUM } from "./helpers/config.mjs";
 
 Hooks.once('init', async function() {
 
+  console.log(`Capharnaüm | Initializing the Capharnaüm Game System\n${CAPHARNAUM.ASCII}`);
+
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.capharnaum = {
     CapharnaumActor,
     CapharnaumItem,
-    rollItemMacro
+    rollItemMacro,
+    CapharnaumCombat
   };
 
   // Add custom constants for configuration.
@@ -31,13 +35,14 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @attributes.dex.mod",
+    formula: "1d6",
     decimals: 2
   };
 
   // Define custom Document classes
   CONFIG.Actor.documentClass = CapharnaumActor;
   CONFIG.Item.documentClass = CapharnaumItem;
+  CONFIG.Combat.documentClass = CapharnaumCombat;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
