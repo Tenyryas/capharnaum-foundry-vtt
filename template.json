@@ -15,9 +15,9 @@
             },
             "magic": {
                 "magic": {
-                    "create": 0,
-                    "transform": 0,
-                    "destroy": 0,
+                    "create": false,
+                    "transform": false,
+                    "destroy": false,
                     "spellList": ""
                 }
             },
@@ -233,7 +233,8 @@
                 "derived_stats",
                 "attributes",
                 "skills",
-                "virtues"
+                "virtues",
+                "magic"
             ],
             "adventure_points": 0
         },
@@ -243,7 +244,8 @@
                 "background",
                 "attributes",
                 "skills",
-                "derived_stats"
+                "derived_stats",
+                "magic"
             ]
         }
     },

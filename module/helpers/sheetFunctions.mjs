@@ -72,6 +72,8 @@ async function _onRollAttribute(event) {
         return roll;
 }
 
+
+//Skill roll window call
 async function _onRollSkill(event) {
 
         const element = event.currentTarget;

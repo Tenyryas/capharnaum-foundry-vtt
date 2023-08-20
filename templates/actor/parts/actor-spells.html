@@ -3,19 +3,19 @@
   <div class="grid grid-3col grid-magic-verbs">
 
     <div class="magic-verbs">
-      <label for="data.magic.create" class="resource-label align-center">{{localize "CAPHARNAUM.MagicCreate"}}</label>
-      <input type="text" name="data.magic.create" value="{{data.magic.create}}" data-dtype="Number" />
+      <label for="system.magic.create" class="resource-label align-center">{{localize "CAPHARNAUM.MagicCreate"}}</label>
+      <input type="checkbox" name="system.magic.create" {{checked system.magic.create}} data-dtype="Boolean" />
     </div>
 
     <div class="magic-verbs">
-      <label for="data.magic.transform"
+      <label for="system.magic.transform"
         class="resource-label align-center">{{localize "CAPHARNAUM.MagicTransform"}}</label>
-      <input type="text" name="data.magic.transform" value="{{data.magic.transform}}" data-dtype="Number" />
+      <input type="checkbox" name="system.magic.transform" {{checked system.magic.transform}} data-dtype="Boolean" />
     </div>
 
     <div class="magic-verbs">
-      <label for="data.magic.destroy" class="resource-label align-center">{{localize "CAPHARNAUM.MagicDestroy"}}</label>
-      <input type="text" name="data.magic.destroy" value="{{data.magic.destroy}}" data-dtype="Number" />
+      <label for="system.magic.destroy" class="resource-label align-center">{{localize "CAPHARNAUM.MagicDestroy"}}</label>
+      <input type="checkbox" name="system.magic.destroy" {{checked system.magic.destroy}} data-dtype="Boolean" />
     </div>
 
   </div>
@@ -40,7 +40,7 @@
             <h4>{{item.name}}</h4>
           </div>
           <div class="ability-level">
-            <h4>{{item.data.type}}</h4>
+            <h4>{{item.system.type}}</h4>
           </div>
           <div class="item-controls">
             <a class="item-control item-edit" title="{{localize "CAPHARNAUM.SpellsEditSpell"}}"><i class="fas fa-edit"></i></a>
@@ -50,8 +50,7 @@
       {{/each}}
     </ol>
     <div class="editor-spellList spellList-content grid-span-2">
-      {{editor content=data.magic.spellList target="data.magic.spellList" rollData=rollData button=true owner=owner
-      editable=editable}}
+      {{editor enrichments.spellList target="system.magic.spellList" rollData=rollData button=true owner=owner editable=editable}}
     </div>
   </div>
 </div>

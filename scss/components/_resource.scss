@@ -13,3 +13,7 @@
   justify-self: left;
 }
 
+.magic-verbs input {
+  -webkit-filter: none;
+  accent-color: $c-brown-alpha10;
+}

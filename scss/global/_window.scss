@@ -27,11 +27,12 @@
 .capharnaum .window-content {
   background: url(../assets/ui/parchment.webp) center/160%;
   overflow-y: hidden;
-}
 
-.sidebar {
-  padding-right: 2px;
-  border-right: 1px solid $c-brown-alpha5;
+  .sidebar {
+    height: 780px;
+    border-right: 25px solid transparent;
+    border-image: url(../assets/ui/sidebar_line.webp) 5 40 5 0/85px 20px/0 repeat;
+  }
 }
 
 .capharnaum h2 {

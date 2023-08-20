@@ -29,13 +29,13 @@ export class CapharnaumActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
+    const actorData = this;
+    const data = actorData.system;
     const flags = actorData.flags.capharnaum || {};
-    const statCon = actorData.data.attributes.con.value;
-    const statDex = actorData.data.attributes.dex.value;
-    const statInt = actorData.data.attributes.int.value;
-    const skillAth = actorData.data.skills.adventurer.athletics.value;
+    const statCon = actorData.system.attributes.con.value;
+    const statDex = actorData.system.attributes.dex.value;
+    const statInt = actorData.system.attributes.int.value;
+    const skillAth = actorData.system.skills.adventurer.athletics.value;
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -43,7 +43,7 @@ export class CapharnaumActor extends Actor {
     this._prepareNpcData(actorData);
 
     // Max HP
-    if( actorData.type =="Dragon-marked" || data.subtype != "Babouches Dragger") {
+    if( actorData.type =="Dragon-marked" || system.subtype != "Babouches Dragger") {
       data.health.max = statCon * 10;
     }
     else {
@@ -74,7 +74,7 @@ export class CapharnaumActor extends Actor {
     if (actorData.type !== 'Dragon-marked') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    const data = actorData.system;
 
     // Loop through attribute scores, and add their modifiers to our sheet output.
     // for (let [key, attribute] of Object.entries(data.attributes)) {
@@ -90,7 +90,7 @@ export class CapharnaumActor extends Actor {
     if (actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    const data = actorData.system;
     data.xp = (data.cr * data.cr) * 100;
   }
 
@@ -111,19 +111,19 @@ export class CapharnaumActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.data.type !== 'Dragon-marked') return;
+    if (this.system.type !== 'Dragon-marked') return;
 
     // Copy the attribute scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.attributes) {
-      for (let [k, v] of Object.entries(data.attributes)) {
+    if (system.attributes) {
+      for (let [k, v] of Object.entries(system.attributes)) {
         data[k] = foundry.utils.deepClone(v);
       }
     }
 
     // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
+    if (system.attributes.level) {
+      system.lvl = system.attributes.level.value ?? 0;
     }
   }
 
@@ -131,7 +131,7 @@ export class CapharnaumActor extends Actor {
    * Prepare NPC roll data.
    */
   _getNpcRollData(data) {
-    if (this.data.type !== 'npc') return;
+    if (this.system.type !== 'npc') return;
 
     // Process additional NPC data here.
   }

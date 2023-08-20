@@ -15,11 +15,11 @@ export class CapharnaumCombat extends Combat {
                 for (const id of ids) {
                         // Get Combatant data
                         const c = this.combatants.get(id, { strict: true });
-                        const maxInit = c.actor.data.data.init;
+                        const maxInit = c.actor.system.system.init;
                         
 
                         //Do not roll for defeated combatants
-                        if (c.data.defeated) continue;
+                        if (c.system.defeated) continue;
 
                         // Draw initiative
 

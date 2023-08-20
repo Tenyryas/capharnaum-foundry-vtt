@@ -12,19 +12,19 @@
 
                 <aside class="sidebar grid-span-2">
                         <div class="grid grid-items">
-                                <label for="data.level"
+                                <label for="system.level"
                                         class="resource-label align-left item-label">{{localize "CAPHARNAUM.AbilityLevel"}}</label>
-                                <input type="text" name="data.level" value="{{data.level}}" data-dtype="Number" />
+                                <input type="text" name="system.level" value="{{system.level}}" data-dtype="Number" />
 
-                                <label for="data.path"
+                                <label for="system.path"
                                         class="resource-label align-left item-label">{{localize "CAPHARNAUM.AbilityPath"}}</label>
-                                <input type="text" name="data.path" value="{{data.path}}" data-dtype="String" />
+                                <input type="text" name="system.path" value="{{system.path}}" data-dtype="String" />
                         </div>
                 </aside>
 
                 {{!-- Description Tab --}}
                 <div class="description grid-span-5">
-                        {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+                        {{editor enrichments.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
                 </div>
 
 

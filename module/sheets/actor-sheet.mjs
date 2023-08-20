@@ -27,7 +27,7 @@ export class CapharnaumActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
@@ -35,11 +35,16 @@ export class CapharnaumActorSheet extends ActorSheet {
     const context = super.getData();
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    context.system = actorData.system;
     context.flags = actorData.flags;
+
+    context.enrichments = {
+      "biography": await TextEditor.enrichHTML(context.system.biography, {async: true}),
+      "spellList": await TextEditor.enrichHTML(context.system.magic.spellList, {async: true})
+    };
 
     // Prepare character data and items.
     if (actorData.type == 'Dragon-marked') {
@@ -68,13 +73,13 @@ export class CapharnaumActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle attribute scores.
-    for (let [k, v] of Object.entries(context.data.attributes)) {
+    for (let [k, v] of Object.entries(context.system.attributes)) {
       v.label = game.i18n.localize(CONFIG.CAPHARNAUM.attributes[k]) ?? k;
     }
 
-    for (let [k, v] of Object.entries(context.data.skills)) {
+    for (let [k, v] of Object.entries(context.system.skills)) {
 
-      for (let [a, b] of Object.entries(context.data.skills[k])) {
+      for (let [a, b] of Object.entries(context.system.skills[k])) {
         b.label = game.i18n.localize(CONFIG.CAPHARNAUM.skills[a]) ?? a;
       }
 
@@ -133,8 +138,8 @@ export class CapharnaumActorSheet extends ActorSheet {
       }
       // Append to spells.
       else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
+        if (i.system.spellLevel != undefined) {
+          spells[i.system.spellLevel].push(i);
         }
       }
     }
@@ -264,7 +269,7 @@ export class CapharnaumActorSheet extends ActorSheet {
 
     // Use a safe clone of the actor data for further operations.
     const user = game.user;
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
     const virtues = actorData.data.virtues;
 
 
@@ -297,7 +302,7 @@ export class CapharnaumActorSheet extends ActorSheet {
   async _onRollAttribute(event) {
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     event.preventDefault();
     const element = event.currentTarget;
@@ -364,12 +369,12 @@ export class CapharnaumActorSheet extends ActorSheet {
 
   rollSkill(attr, figure, skill) {
 
-    const actorData = this.actor.data.toObject(false);
-    const attrValue = actorData.data.attributes[attr].value;
-    const skillValue = actorData.data.skills[figure][skill].value;
+    const actorData = this.actor.toObject(false);
+    const attrValue = actorData.system.attributes[attr].value;
+    const skillValue = actorData.system.skills[figure][skill].value;
 
     const dice = attrValue + skillValue;
-    const dragon = actorData.data.dragon_dice;
+    const dragon = actorData.system.dragon_dice;
     let flavorText = "";
 
     let total = dice - dragon;

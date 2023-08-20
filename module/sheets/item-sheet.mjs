@@ -22,18 +22,24 @@ export class CapharnaumItemSheet extends ItemSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    return `${path}/item-${this.item.data.type}-sheet.html`;
+    return `${path}/item-${this.item.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve base data structure.
     const context = super.getData();
 
     // Use a safe clone of the item data for further operations.
-    const itemData = context.item.data;
+    const itemData = context.item;
+
+    context.system = itemData.system;
+
+    context.enrichments = {
+      "description": await TextEditor.enrichHTML(context.system.description, {async: true})
+    };
 
     // Retrieve the roll data for TinyMCE editors.
     context.rollData = {};
@@ -43,7 +49,7 @@ export class CapharnaumItemSheet extends ItemSheet {
     }
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = itemData.data;
+    context.system = itemData.system;
     context.flags = itemData.flags;
 
     return context;

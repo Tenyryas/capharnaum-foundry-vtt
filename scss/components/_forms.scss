@@ -20,12 +20,14 @@
     height: 50px;
     padding: 0px;
     margin: 5px 0;
-    border-bottom: 0;
+    border-bottom: 15px solid transparent;
+    border-image: url(../assets/ui/underline.webp) 0 5 40 fill / 20px 40px repeat;
 
     input {
       width: 100%;
       height: 100%;
       margin: 0;
+      text-align: center;
     }
   }
 }
@@ -34,24 +36,53 @@
   flex: 0 0 150px;
   height: 150px;
   margin: 0 auto;
-  border: 1px solid $c-brown-alpha5;
-  border-radius: 2px;
+  border: 10px solid transparent;
+  border-image: url(../assets/ui/sidebar_border.webp) 20 / 10px repeat;
 }
 
-.sheet-tabs {
+nav.sheet-tabs {
   flex: 0;
+  margin: -10px 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-image: url(../assets/ui/sidebar_border.webp) 40 fill repeat;
+
+  .item {
+    padding: 0;
+    width: 81px;
+    margin: -5px;
+    padding: 10px;
+  }
+
+  .active {
+    background-color: $c-brown-alpha3;
+    text-shadow: none;
+  }
 }
 
 .sheet-body {
 
   .tab {
     overflow-y: auto;
-    max-height: 55vh;
+    max-height: 57vh;
     padding-right: 10px;
   }
 
   .biography {
+    margin-top: 20px;
     overflow-y: auto;
+    height: 50vh;
+
+    .editor-content {
+    overflow-y: auto;
+    word-break: break-word;
+    border: 20px solid transparent;
+    border-image: url(../assets/ui/sidebar_border.webp) 40 fill / 15px;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -160,12 +191,13 @@ input.input-text-sidebar:disabled {
   grid-column: auto;
   gap: 0px;
   font-size: 0.8rem;
-  border: 1px solid $c-brown-alpha5;
+  border: 1px solid transparent;
   margin: 0;
 }
 
 .figure h3 {
-  border-bottom: 1px solid $c-brown-alpha5;
+  border: 8px solid transparent;
+  border-image: url(../assets/ui/sidebar_border.webp) 50 fill / 25px 25px / 0 repeat;
   display: flex;
   flex-direction: column;
 }
@@ -185,6 +217,7 @@ input.input-text-sidebar:disabled {
 }
 
 .magic-verbs {
+  align-items: center;
   display: flex;
   flex-direction: column;
   max-width: 4rem;

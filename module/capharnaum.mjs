@@ -109,7 +109,7 @@ Hooks.once("ready", async function() {
 async function createItemMacro(data, slot) {
   if (data.type !== "Item") return;
   if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
-  const item = data.data;
+  const item = data.system;
 
   // Create the macro command
   const command = `game.capharnaum.rollItemMacro("${item.name}");`;

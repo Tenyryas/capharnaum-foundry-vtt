@@ -12,15 +12,15 @@
 
                 <aside class="sidebar grid-span-2">
                         <div class="grid grid-items">
-                                <label for="data.type"
+                                <label for="system.type"
                                         class="resource-label align-left item-label">{{localize "CAPHARNAUM.MagicWordType"}}</label>
-                                <input type="text" name="data.type" value="{{data.type}}" data-dtype="String" />
+                                <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />
                         </div>
                 </aside>
 
                 {{!-- Description Tab --}}
                 <div class="description grid-span-5">
-                        {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+                        {{editor enrichments.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
                 </div>
 
 

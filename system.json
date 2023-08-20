@@ -2,14 +2,23 @@
   "name": "capharnaum",
   "title": "Capharnaüm",
   "description": "The Capharnaum system for FoundryVTT!",
-  "version": "1.0.0",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "version": "1.1.0",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 11
+  },
   "author": "Kyane",
   "esmodules": ["module/capharnaum.mjs"],
   "styles": ["css/capharnaum.css"],
   "scripts": [],
   "packs": [],
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/capharnaum/assets/thumbnail.jpg",
+      "thumbnail": "systems/capharnaum/assets/thumbnail.jpg"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
